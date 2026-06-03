@@ -179,6 +179,15 @@ Session Initiation Protocol (SIP) Port 5060/5061
 1. Broken Access Control
 - Access control enforeces policies such that users may not access anything outside their own INTENDED permissions.
 - failures typically lead to unauthorized information disclusure, modification, destruction or performing a business function that the user is not supposed to do (IE adding a bajillion dubloons to someones bank account)
+- Bypassing access control checks by modifying the URL, (parameter tampering or force browsing), internal application state or the HTML webpage.
+- Viewing/accessing someone else's account via it's uique identifier
+- accessing APIs using missing access controls (POST PUT and DELETE)
+- elevation of privelege. Acting as a user without being logged in for example.
+- Metadata manipulation such as tampering with a JSON web token, cookie or hidden field etc.
+- CORS misconfiguration can allow for API access from untrusted origins.
+- Force browsing (guessing URLs) to authenticate pages as an unauthorized user or to privilege pages as a standard user.
+
+Access control is only effective if it is implemented SERVER side not on the frontend. This is because backend is much harder to modify from the outside generally speaking.
 
 
 
