@@ -1,5 +1,8 @@
 section 4
 
+//TODO - Finish notes on OWASP top 10.
+
+
 ## VPNs
 - Client-based VPN
 Must be donwloaded on the computer and can also be configured to allow access to specific domains and software and such.
@@ -176,7 +179,7 @@ Session Initiation Protocol (SIP) Port 5060/5061
 
 ## Owasp top 10
 - Owasp top 10 is just a list of the 10 most dangerous web server vulnerabilities.
-1. Broken Access Control
+# 1. Broken Access Control
 - Access control enforeces policies such that users may not access anything outside their own INTENDED permissions.
 - failures typically lead to unauthorized information disclusure, modification, destruction or performing a business function that the user is not supposed to do (IE adding a bajillion dubloons to someones bank account)
 - Bypassing access control checks by modifying the URL, (parameter tampering or force browsing), internal application state or the HTML webpage.
@@ -189,8 +192,26 @@ Session Initiation Protocol (SIP) Port 5060/5061
 
 Access control is only effective if it is implemented SERVER side not on the frontend. This is because backend is much harder to modify from the outside generally speaking.
 
+# 2. Security Misconfiguration
+
+# 3. Software Supply Chain Failures
+
+# 4. Cryptographic Failures
+
+# 5. Injections
+
+# 6. Insecure Design
+
+# 7. Authentication Failures
+
+# 8. Software or Data Integrity Failures
+
+# 9. Security Logging and Alerting Failures
+
+# 10. Mishandling of Exceptional Conditions
 
 
+## Finish making notes on this a little bit later
 
 
 
