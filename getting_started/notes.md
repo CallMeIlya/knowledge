@@ -95,6 +95,91 @@ Simple Mail Transfer Protocol (SMTP) Port 25
 - SMTP is by default not secured by default.
 - Used mainly for emails and such
 
+Domain Name System (DNS) Port 53
+- Not inherently secure
+- Designed for DNS servers.
+- Designed to be usable but not very secure by default
+
+Dynamic Host Configuration Protocol (DHCP) Port 67 and 68
+- Automatically assigns IP addresses and network configs to devices
+- Port 67 is used by the DHCP server to receive client requests
+- Port 68 is used by the client to receive DHCP server requests
+- Not inherently secure
+
+Trivial File Transfer Protocol (TFTP) Port 69 (nice)
+- Simpler version of FTP
+- Used for very small files
+- Not secure at all
+
+HyperText Transfer Protocol (HTTP) Port 80
+- Not secure or encrypted
+- Used for websites to show websites on your computer
+
+Network Time Protocol (NTP) Port 123
+- Used to synchronize computer times on networks to ensure accurate time keeping
+- Critical for logs and other time sensitive stuff
+- Not secure
+
+Simple Network Management Protocol (SNMP) Port 161/162
+- Used for monitoring and managing network devices (IE routers and/or switches or servers or more)
+- 161 is used by the SNMP manager to send requests to devices
+- 162 is used by devices to send alerts to the manager
+- Secure but only in V3. All other versions are insecure
+
+Lightweight Directory Access Protocol (LDAP) Port 389
+- Not considered secure
+- Used for accessing directory information (literally just stuff in folders)
+- Sorta acts like a phonebook for different networks where you can manage users/devices and such.
+
+HyperText Transfer Protocol Secured (HTTPS) Port 443
+- Secure version of HTTP
+- Widely used for transfering data between your browser and a website.
+- Address (URL) ensures it gets to the right person (using UDP/TCP transmissions)
+
+Server Message Block (SMB) Port 445
+- Not secured by default
+- Used for sharing files between devices on 1 network. Allows for files to be accessed as if they are local
+- There are technically 5 different SMB versions
+- Sorta like a library for your server
+
+Syslog Port 514
+- Used by devices for organizing logs for a single centralized log server
+- Not secure by default
+
+Simple Mail Transfer Protocol Secure (SMTPS) Port 587/465
+- Secure version of SMTP
+
+Lightweight Directory Access Protocol over SSL (LDAPS)
+- Used to securely access data in folders securely to protect the data.
+- Technically SSL is deprecated. Often the S refers to Secured
+- Secured
+
+Structured Query Language (SQL) Port 1433
+- Used for making sql queries and edits and such.
+- Not inherently safe and requires some configuration to make it secure.
+
+Remote Desktop Protocol (RDP) Port 3389
+- Allows for remote control of other people's desktops. Used by the IT guys to help you make your computer work
+- Not secure by default but can be pretty easily made secure.
+
+Session Initiation Protocol (SIP) Port 5060/5061
+- Used for managing communication stuff over IP networks (IE voice calls or messaging)
+- Port 5060 version is not encrypted or secured
+- Port 5061 is secured over TLS
+- Sorta like a digital event planner for messages/calls
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
