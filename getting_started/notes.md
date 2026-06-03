@@ -168,15 +168,17 @@ Session Initiation Protocol (SIP) Port 5060/5061
 - Port 5061 is secured over TLS
 - Sorta like a digital event planner for messages/calls
 
+## Web servers and what do they do???!??!?!???!!
+- The backend of a website pretty much
+- Responds to clients (IE browsers MOSTLY)
+- Typically use TCP ports such as 80 or 443 (in other words HTTP and HTTPS protocols)
+- Web apps are very high value targets for attacakers because they can provide a very vast attack surface.
 
-
-
-
-
-
-
-
-
+## Owasp top 10
+- Owasp top 10 is just a list of the 10 most dangerous web server vulnerabilities.
+1. Broken Access Control
+- Access control enforeces policies such that users may not access anything outside their own INTENDED permissions.
+- failures typically lead to unauthorized information disclusure, modification, destruction or performing a business function that the user is not supposed to do (IE adding a bajillion dubloons to someones bank account)
 
 
 
