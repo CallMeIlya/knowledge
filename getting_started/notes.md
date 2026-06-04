@@ -220,7 +220,7 @@ SSH
 - Secure but not anonymous because your public key identifies you.
 - Uses public key cryptography
 
-Public key cryptography
+## Public key cryptography
 
 Properties
 - Creates two mathematically linked keys One private and one public
@@ -237,7 +237,7 @@ Example
 - Say someone wanted to decrypt the message sent by bob, it would be impossible because he doesn't have Alice's private key
 - Same thing goes for the message send by alice.
 
-Symmetric key cryptography
+## Symmetric key cryptography
 
 Properties
 - One singular key can both ENCRYPT and DECRYPT messages.
@@ -253,17 +253,39 @@ Example
 - This poses a security concern and is inconvenient compared to public key cryptography
 
 
-Netcat
+# Netcat
 - Netcat is a network utility for interacting with TCP and UDP ports. It can be used for many things during a pentest.
 - Mainly useful for connecting to shells. 
 - Can be used to connect to any LISTENING port and interact with the service that's running on the port.
 - SSH for example is programmed to handle connections over port 22 to send data and keys.
 
+# Tmux
+- Pretty much a tiling window manager but inside of a single terminal
+- Manages multiple terminals in 1 terminal. Kinda neat.
+- Get used to using Tmux. Seriously its useful
 
 
+## Service Scanning
+- A service is an application that runs on a computer and does something for other computers. 
+- Specialized machines for services are just servers.
+- As cybersec people, what we're interested in is if we can coerce these services act differently than as they are intended. (this would be a vulnerability possibly)
+- Port 1 to 1023 out of the 1 to 65535 ports are reserved for specialized functions.
+- Port 0 is reserved for TCP/IP networking and is not used by TCP or UDP messaging. 
+- If anything attempts to bind to port 0, it will instead bind to the next available port above port 1024 because port 0 is treated as a "wildcard" port.
+- Instead of having to examine all 65535 ports manually, tools such as Nmap have been designed to make this easier.
 
-
-
+## NMap
+- performs many different types of scans on ports of a given IP adress. Very useful tool.
+- The STATE heading will show a couple of main options
+# Open
+- to mean you can freely attempt to connect
+# Filtered
+- Usually means there's some kind of firewall on this port only allowing some IPs to attempt to connect.
+# SERVICE
+- Usually specifies the service that is TYPICALLY associated with the port number. 
+- The default scan does NOT tell you the actual service running on the port
+- nmap by default does a TCP scan and not a UDP scan.
+- The default scan will will assume the service running on the port is the standard service as per the port conventions.
 
 
 
