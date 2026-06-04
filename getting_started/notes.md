@@ -250,11 +250,14 @@ Example
 - Noone else knows bob's or alice's keys so they cannot read the message.
 
 - The problem with this technique is that it requires for the exchange of these keys beforehand.
-- This poses a security concern and is inconvenient.
+- This poses a security concern and is inconvenient compared to public key cryptography
 
 
 Netcat
-- 
+- Netcat is a network utility for interacting with TCP and UDP ports. It can be used for many things during a pentest.
+- Mainly useful for connecting to shells. 
+- Can be used to connect to any LISTENING port and interact with the service that's running on the port.
+- SSH for example is programmed to handle connections over port 22 to send data and keys.
 
 
 
