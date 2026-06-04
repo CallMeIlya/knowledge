@@ -14,3 +14,8 @@ how to connect to a VPN
 - shows you the networks available via the vpn
 
 
+## SSH
+## Netcat
+## Tmux
+
+

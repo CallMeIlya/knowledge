@@ -1,5 +1,3 @@
-section 4
-
 //TODO - Finish notes on OWASP top 10.
 
 
@@ -210,8 +208,58 @@ Access control is only effective if it is implemented SERVER side not on the fro
 
 # 10. Mishandling of Exceptional Conditions
 
+## Basic Tools
+SSH
+- A tool used to remotely access computers on the same network or over the internet
+- SSH connections are usually much more stable than reverse shell connections
+- Really cool stuff highkey
+- Can technically be a victim of a man-in-the-middle attack if someone uses your IP you could accidentally connect to it.
+- Very secure
+- VERIFY THE KEY seriously do this through a secured channel just to be sure.
+- Uses public key authentication
+- Secure but not anonymous because your public key identifies you.
+- Uses public key cryptography
 
-## Finish making notes on this a little bit later
+Public key cryptography
+
+Properties
+- Creates two mathematically linked keys One private and one public
+- Anyone with the public key can encrypt data but not decrypt it. This key is also assumed to be easily seen by anyone who wants to see it
+- Anyone with the private key can decrypt data but not encrypt. This key is assumed to never leave the machine.
+- Private key can be used to derive the public key but NOT the other way around. (essentially public key is a hash of the private key)
+
+Example
+- Imagine Alice and Bob both each have differing public and private keys.
+- Alice wants to send Bob a message.
+- She does this by ENCRYPTING her message using BOBs public key.
+- Then Bob and ONLY Bob can decrypt that message using his private key since no-one else has his private key.
+- Same thing when Bob wants to send alice a message.
+- Say someone wanted to decrypt the message sent by bob, it would be impossible because he doesn't have Alice's private key
+- Same thing goes for the message send by alice.
+
+Symmetric key cryptography
+
+Properties
+- One singular key can both ENCRYPT and DECRYPT messages.
+
+Example
+- Alice and bob both share a key which they shared and agreed upon a long time ago.
+- Say alice wants to send bob a message.
+- Alice will encrypt her message using the key.
+- Then bob can freely decrypt it because he knows the key Alice used.
+- Noone else knows bob's or alice's keys so they cannot read the message.
+
+- The problem with this technique is that it requires for the exchange of these keys beforehand.
+- This poses a security concern and is inconvenient.
+
+
+Netcat
+- 
+
+
+
+
+
 
 
 
