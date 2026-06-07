@@ -177,7 +177,10 @@ Session Initiation Protocol (SIP) Port 5060/5061
 
 ## Owasp top 10
 - Owasp top 10 is just a list of the 10 most dangerous web server vulnerabilities.
+
+
 # 1. Broken Access Control
+
 - Access control enforeces policies such that users may not access anything outside their own INTENDED permissions.
 - failures typically lead to unauthorized information disclusure, modification, destruction or performing a business function that the user is not supposed to do (IE adding a bajillion dubloons to someones bank account)
 - Bypassing access control checks by modifying the URL, (parameter tampering or force browsing), internal application state or the HTML webpage.
@@ -287,6 +290,33 @@ Example
 - nmap by default does a TCP scan and not a UDP scan.
 - The default scan will will assume the service running on the port is the standard service as per the port conventions.
 
+Many ports are commonly associated with windows or linux (for example port 3389 is the default port for Remote Desktop Services and is a sign that you are connecting to a windows machine.
+
+Port 22 being available indicates that you are on a linux/unix machine.
+
+the -sC parameter of nmap lets you specify which script should be used to gain more detailed information.
+
+-sV parameer instructs nmap to perform a version scan which lets nmap fingerprint the services on the traget system and identify their protocols, application names and version number. Version scan uses a massive databse of over 1000 service signatures, 
+
+-p- tells nmap that you want to scan EVERY single port out of all 65535 ports.
+
+-sV and -sC parameters increase how long the scan takes because it has to perform a ton more checks instead of performing only a TCP handshake
+
+- The -sC parameter runs a ton of useful default scripts against the ports to gain more information about them.
+
+version scans can also reveal which OS you are scanning if the version of the protocol mentions it.
+
+The sV parameter will fingerprint the services on the target system and will acquire the protocol, the application name and the version.
+It is very informative.
 
 
+# nmap scripts
+- -sC will run a bunch of default scripts but will also allow you to specify a script.
+- you can specify a script by running nmap '--script <script name> -p<port> <host>'
+- 
+
+# Attacking Network Services
+- nmap also has functionality that allows you to grab the banner of a given host.
+- It looks as follows 'nmap -sV --script=banner <target>'
+- 
 
