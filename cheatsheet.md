@@ -31,7 +31,7 @@ how to connect to a VPN
 - -U flag lets you submit a user as an extra parameter (will likely prompt you with a password)
 
 ## Get command
-- lets you download files from shares accessed through smbclient. Also just lets you download files from remotely accessed desktops
+- lets you download files from remotely accessed devices.
 
 ## SNMP
 - 'snmpwalk <version> <public/private> <ip>'
@@ -56,3 +56,13 @@ version scans can also reveal which OS you are scanning if the version of the pr
 
 The sV parameter will fingerprint the services on the target system and will acquire the protocol, the application name and the version.
 It is very informative.
+
+# Gobuster
+'gobuster <flag> <flag2> 
+- the dir flag lets you specify a directory and lets you run a simple scan on it.
+
+
+
+
+
+

@@ -340,3 +340,21 @@ It is very informative.
 - Vulnerable to IP spoofing attacks.
 - A tool called snmpwalk lets you interact with snmp protocoled devices.
 
+
+## Web Enumeration
+
+- Sometimes you may run into webservers on port 80 or 443. Webservers host webapps (sometimes more than 1)
+- Webapps are a JUIIICY attack service. Very high value target for a pen-test.
+- Proper web enumeration is CRITICAL especially when organizations are not exposing too many services 
+- Or if they are patched appropriately.
+
+# Gobuster
+- tools like fuff or GoBuster lets you uncover hidden files and perform directory enumerations
+- This can find hidden files and pages.
+- has functionality that allows DNS, vhost and directory brute forcing
+- Can even perform remote code execution
+
+# Directory/File Enumeration
+- 
+
+
