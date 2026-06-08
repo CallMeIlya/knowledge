@@ -320,3 +320,24 @@ It is very informative.
 - It looks as follows 'nmap -sV --script=banner <target>'
 - 
 
+# FTP (File Transfer Protocol)
+- Ports that run the FTP protocol often contain very useful information
+- You can connect to FTP services/ports using the 'ftp' command line utility
+
+# SMB (Server Message Block)
+- Prevalant protocol on Windows machines
+- Moves data around (very sensitive data IE credentials)
+- Some SMB versions are vulnerable to RCE exploits such as EternalBlue.
+- nmap has tools for enumerating SMB (IE smb-os-discovery.nse which extracts the operating system version).
+
+# Shares
+- SMB also allows for users and admins to share folders so that they become accessible remotely by eachother. These tend to contain sensitive info
+- A tool that allows you to enumerate and access these shares is the smbclient tool.
+
+# SNMP
+- Access to routers is controlled using literal plaintext strings. 
+- The default configuration for SNMP protocol is "public" which means you only have read access to the data
+- "private" means read and write access.
+- Vulnerable to IP spoofing attacks.
+- A tool called snmpwalk lets you interact with snmp protocoled devices.
+
