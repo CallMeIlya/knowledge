@@ -58,8 +58,11 @@ The sV parameter will fingerprint the services on the target system and will acq
 It is very informative.
 
 # Gobuster
-'gobuster <flag> <flag2> 
-- the dir flag lets you specify a directory and lets you run a simple scan on it.
+'gobuster <dir/dns> <command options>
+- the dir flag lets you switch between directory enum mode and dns enum mode.
+- 'dir -u' lets you specify a url that you want to connect to.
+- 'dir -w' lets you specify a wordlist for a dictionary attack.
+- Theres many more flags that you can lookup by looking at the 'man' page.
 
 
 

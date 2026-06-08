@@ -354,7 +354,17 @@ It is very informative.
 - has functionality that allows DNS, vhost and directory brute forcing
 - Can even perform remote code execution
 
-# Directory/File Enumeration
-- 
+# Directory/File Enumeration using gobuster
+- 'gobuster dir' mode lets you enumerate directories of web servers.
+- a couple example dictionaries you could use would be 'common.txt'
+- code 200 means you are allowed to access the dir.
+- code 403 means you are not allowed to access the directory.
+- code 301 means you are being redirected.
+- there's many more status codes.
+- Wordpress is an enormous attack potential attack surface.
+# DNS subdomain enumeration with gobuster
+- Subdomains of websites can also provide an attack surface (IE admin panels or applications with additional functionality which could be exploited)
+- https://github.com/danielmiessler/SecLists has some useful resources and lists for DNS enumeration.
+
 
 
