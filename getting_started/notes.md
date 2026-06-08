@@ -284,7 +284,9 @@ Example
 - to mean you can freely attempt to connect
 # Filtered
 - Usually means there's some kind of firewall on this port only allowing some IPs to attempt to connect.
+
 # SERVICE
+
 - Usually specifies the service that is TYPICALLY associated with the port number. 
 - The default scan does NOT tell you the actual service running on the port
 - nmap by default does a TCP scan and not a UDP scan.
@@ -313,10 +315,7 @@ It is very informative.
 # nmap scripts
 - -sC will run a bunch of default scripts but will also allow you to specify a script.
 - you can specify a script by running nmap '--script <script name> -p<port> <host>'
-- 
-
-# Attacking Network Services
-- nmap also has functionality that allows you to grab the banner of a given host.
+# Attacking Network Services - nmap also has functionality that allows you to grab the banner of a given host.
 - It looks as follows 'nmap -sV --script=banner <target>'
 - 
 

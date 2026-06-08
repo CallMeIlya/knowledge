@@ -28,9 +28,10 @@ how to connect to a VPN
 - 'smbclient <host>' lets you access it.
 - -L flag lists available shares
 - -N flag supresses password prompts.
+- -U flag lets you submit a user as an extra parameter (will likely prompt you with a password)
 
 ## Get command
-- lets you download files from remotely accessed devices.
+- lets you download files from shares accessed through smbclient. Also just lets you download files from remotely accessed desktops
 
 ## SNMP
 - 'snmpwalk <version> <public/private> <ip>'
@@ -38,3 +39,20 @@ how to connect to a VPN
 
 # onesixtyone
 - 'onesixtyone -c <dictionary> <ip>' lets you brute force community strings for networks.
+
+# nmap
+- 'nmap <flag> <ip>'
+the -sC parameter of nmap lets you specify which script should be used to gain more detailed information.
+
+-sV parameer instructs nmap to perform a version scan which lets nmap fingerprint the services on the traget system and identify their protocols, application names and version number. Version scan uses a massive databse of over 1000 service signatures, 
+
+-p- tells nmap that you want to scan EVERY single port out of all 65535 ports.
+
+-sV and -sC parameters increase how long the scan takes because it has to perform a ton more checks instead of performing only a TCP handshake
+
+- The -sC parameter runs a ton of useful default scripts against the ports to gain more information about them.
+
+version scans can also reveal which OS you are scanning if the version of the protocol mentions it.
+
+The sV parameter will fingerprint the services on the target system and will acquire the protocol, the application name and the version.
+It is very informative.
