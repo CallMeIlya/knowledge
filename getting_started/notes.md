@@ -338,6 +338,7 @@ It is very informative.
 - The default configuration for SNMP protocol is "public" which means you only have read access to the data
 - "private" means read and write access.
 - Vulnerable to IP spoofing attacks.
+
 - A tool called snmpwalk lets you interact with snmp protocoled devices.
 
 
@@ -364,7 +365,55 @@ It is very informative.
 - Wordpress is an enormous attack potential attack surface.
 # DNS subdomain enumeration with gobuster
 - Subdomains of websites can also provide an attack surface (IE admin panels or applications with additional functionality which could be exploited)
-- https://github.com/danielmiessler/SecLists has some useful resources and lists for DNS enumeration.
+- https://github.com/danielmiessler/SecLists has some useful lists and such for DNS and DIR enumeration.
+- remember to add a dns to your /etc/resolv.conf before doing any DNS enumeration to specify a DNS.
+
+# Banner Grabbing / Web Server Headers on websites
+- The banner of a webserver is a very revealing piece of info.
+- It can tell you if the server has been misconfigured or is missing crucial security options
+- It can tell you exactly whats running on the server (mainly which web framework is in use)
+- cURL can be used to retrieve the banner of a webserver.
+
+# whatweb
+- Tool used for the extraction of versions of webservers that use frameworks.
+- 'whatweb <ip>'
+
+# Certificates
+- SSL/TSL certrificates are also a potentially valueble source of info if HTTPS is in use.
+- The reason for this is because the certificate can reveal the country, state,organization, emails, name of issuer, and a bunch of other personal info aswell.
+
+# robots.txt
+- robots.txt files are files that specify rules for webcrawlers to follow. It can contain webpages that you can sometimes access.
+
+# source code
+- Can be worth checking for any new webpages you come across. Hit CTRL + U to bring up the source code.
+
+# Public Exploits
+- When we identify a service using nmap, one of the first steps is to check if the service has any public exploits. (public exploits are known exploits that have been found on the web that haven't yet or can't be fixed.
+- Literall just google '<application> exploit>.
+- A well known tool for this is searchsploit but there are also others. (exploit DB, rapid7 DB, Vulnerability Lab).
+
+# Metasploit Primer
+- MetaSploit primer (MSF) is a tool for pentesters that has built-in exploits and public vulnerabilities. It povides an automated way to use these exploits against vulnerable targets.
+- It has features like 
+- recon scripts which let you enumerate the target and remote hosts
+- verification scrips to test the existence of a vulnerability without compromising the target
+- meterpeter which is a tool that lets you remotely connect to shells on compromised targets.
+- post-exploitation and pivoting tools
+- RHOST means the target host's IP (can also be a list of IPs)
+- RPORT represents the port of the target
+- LHOST represents the IP of the attacking machine.
+- LPORT is the local port you're listening on
+- Dont overrely on Metasploit primer. It will sometimes fail which means you'll have to switch to manual methods. 
+- Good pentesters know when to switch between automatic and manual methods.
+
+# Retired Boxes
+- There are a shit ton of retired boxes you can try metasploit exploits on. If you want. It's highly recommended.
+
+
+
+
+
 
 
 

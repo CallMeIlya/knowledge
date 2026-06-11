@@ -64,8 +64,31 @@ It is very informative.
 - 'dir -w' lets you specify a wordlist for a dictionary attack.
 - Theres many more flags that you can lookup by looking at the 'man' page.
 
+# curl
+'curl <ip/url>'
+Tool that lets you download stuff from certain ports.
+- '-I' flag lets you grab the header of an HTTP IMAP or SMTP protocol port.
+- '-L' flag. In case the server redirects (as indicated per a 3xx code), this flag lets curl follow the redirect.
 
+# EyeWitness
+- Eyewitness is a tool that lets you take screenshots of target web apps and also finger print them and identify credentials.
 
+# whatweb
+'whatweb <ip>'
+- Lets you pinpoint the exact tech that runs on the webserver.
+- Very useful.
+- Has a lot more functionality that lets you automate website enumeration across a network.
+
+# Metasploit Primer
+- msfconsole lets you search for exploits.
+- you can type 'search <exploit/module> <app>' to find an exploit
+- you can also type 'use <pathtoexploit>' this lets you automatically abuse the exploit.
+- before you can run it you need to configure the options by typing 'show options'
+- any option that's "required" is... well required for the exploit to work lol..
+- the 'set <option> <input>' lets you set settings.
+- 'exploit' lets you actually run the exploit
+- 
+<ScrollWheelUp>
 
 
 
