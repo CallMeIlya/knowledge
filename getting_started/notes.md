@@ -406,13 +406,37 @@ It is very informative.
 - LPORT is the local port you're listening on
 - Dont overrely on Metasploit primer. It will sometimes fail which means you'll have to switch to manual methods. 
 - Good pentesters know when to switch between automatic and manual methods.
+- Different exploits on metasploit do different things (some open a shell some just extract a file or whatever).
 
 # Retired Boxes
 - There are a shit ton of retired boxes you can try metasploit exploits on. If you want. It's highly recommended.
+- List of retired boxes
+Granny/Grandpa
+Jerry
+Blue
+Lame
+Optimum
+Legacy
+Devel
 
+## Types of Shells
+- One way to connect to a compromised system is to use SSH or WinRM but this only works AFTER we're able to execute commands on the system first.
+- Other method of accessing compromised systems is through shells. This is more reliable.
+- The reason we even need to setup a shell is so we dont have to repeat the exploit every time we want to type a command on the compromised machine.
 
-
-
+# Reverse Shell
+- Quickest and easiest method of acquiring control over a compromised host. Once a vulnerability is identified, you can start a NetCat listener on your machine that listens to a specific port on your machine.
+- With this listener in place, you can execute a reverse shell command that connects the remote host to our netcat listener.
+- When the netcat listener realizes you've connected, it will open a shell.
+- Needs you to setup a listening port using netcat.
+# Bind Shell
+- 
+# Web Shell
+- 
+# Listening ports
+- You can set netcat to listen to a specific port. For more info see cheatsheet.
+# Connect Back IP
+- To send a reverse connection we need our system's IP and port.
 
 
 

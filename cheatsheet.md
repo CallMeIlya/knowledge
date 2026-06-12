@@ -17,8 +17,18 @@ how to connect to a VPN
 ## SSH
 - Use 'ssh user@host' to safely remotely access a computer. Very useful utility
 ## Netcat
-- Allows you to grab the banner of a given service running on a port
+Allows you to grab the banner of a given service running on a port. Also lets you set your ports to listening mode so it awaits incoming connections.
 - 'nc <host> <port>'
+
+Allows netcat to listen for a connection on a specific port.
+- 'nc -lvpn <port>'
+
+- -l flag lets you set a port to listen mode
+- -p flag lets you specify a port
+- -n lets you disable dns resolution and only connect to IPs. This will speed up the connection
+- -v enables verbose mode and will let netcat tell you when the port receives a signal
+
+
 ## FTP
 - ftp services can be connected to by using the ftp utility
 - 'ftp -p <host>':w
@@ -87,8 +97,9 @@ Tool that lets you download stuff from certain ports.
 - any option that's "required" is... well required for the exploit to work lol..
 - the 'set <option> <input>' lets you set settings.
 - 'exploit' lets you actually run the exploit
-- 
-<ScrollWheelUp>
+- The 'check' command lets you see if a server is vulnerable.
 
-
+# IP
+- Your IP can be found using the following command.
+- 'ip a'
 
