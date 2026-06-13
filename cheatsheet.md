@@ -102,4 +102,10 @@ Tool that lets you download stuff from certain ports.
 # IP
 - Your IP can be found using the following command.
 - 'ip a'
+- HTB uses 'tun0' as the default hackthebox vpn connection interface because they dont have internet access.
+- Normally you'd use something like 'eth0' or something.
+
+# Reverse Shell Command
+- The executed commands depend on what OS the compromised host runs on. A website called "Payload All The Things" has a comprehensive list of reverse shell commands which can be very useful.
+- 
 
