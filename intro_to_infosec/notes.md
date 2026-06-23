@@ -143,3 +143,33 @@ These are important lol. If these arent secure you're basically fucked.
 - Security Architects (Design a structure for the app that's secure)
 - IT Operations (These teams are responsible for maintaining security of the production environment).
 
+# Operational Security (OpSec)
+- Asset Identification
+figure out what's most important to protect (Your critical information assets).
+
+- Threat ID
+Think of what could go wrong. (Essentially threat modelling).
+
+- Vulnerability Identification
+Fix vulnerabilities and amke sure they are no longer vulnerabilities.
+
+- Access Control
+Make sure only people who need access get access. no more no less.
+
+- Monitoring
+Keep watching and adapting to new threats and vulnerabilities as they emerge.
+
+
+Opsec ranges from not just digital but also physical security. 
+
+Change management is also a significant part of opsec, ensuring change (IE new database, new system, craeting backups or whatever) happens in a conrolled manner.
+
+## Opsec Responsibility
+- The responsibility of Opsec typically falls into th CISO (Chief Information Security Officer) who works closely with all department, (IT, HR, Legal) to ensure security measures are alligned with the institutions and regulatory means.
+
+## Disaster Recovery and business continuity.
+- if something bad happens, then you have to make sure you can still continue lol.
+- If something goes wrong, how do you continue?
+
+
+

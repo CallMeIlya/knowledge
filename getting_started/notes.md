@@ -510,10 +510,5 @@ This lets you execute the "id" command.
 - This is because it does not create any new port connections but just runs on web port 80 or 443.
 - Its also great that if the compromised host is rebooted, then the web shell would still be in place and can still be freely accessed without having to exploit the remote host again(once the host is booted again.).
 - Unfortunately web shells are not as interactive as reverse and bind shells since you have to re-request different URLs to execute commands. Still, in rare cases you can create a python script to automate this process and make the web shell a bit more interactive.
->>>>>>> b604d769b35ac7a84c4f4f903077d720b3be7d1d
 
-# Upgrading TTY
-- Once we connect to a shell through NC, we can only type commands and backspace but we cant move cursors to the left right or edit the commands. We can't go up or down either to access command history.
-- To enable these features you need to upgrade your TTY.
-- 
 
