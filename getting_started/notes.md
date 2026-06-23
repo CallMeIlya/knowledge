@@ -511,4 +511,75 @@ This lets you execute the "id" command.
 - Its also great that if the compromised host is rebooted, then the web shell would still be in place and can still be freely accessed without having to exploit the remote host again(once the host is booted again.).
 - Unfortunately web shells are not as interactive as reverse and bind shells since you have to re-request different URLs to execute commands. Still, in rare cases you can create a python script to automate this process and make the web shell a bit more interactive.
 
+# Privelege Escalation
+- Once we gain access to a box, we want to scout (enumerate) the box first to see if there's any internal vulnerabilities to achieve higher privelege level. (IE root or admin).
+
+# PrivEsc Checklists.
+- There are a ton of checklists and cheatsheets online for checks that can be ran for privesc enumeration.
+- One example is HackTricks. Useful for both linux and windows local privEsc.
+- Another one is PayloadAllTheThings on github for linux and windows.
+
+# Enumeration Scripts.
+- Many of the commands in PrivEsc checklists can be automatically ran with a script which will report any weaknesses.
+- You can check a lot of things, which version of sudo used, outdated kernel, wether the folder you're in has write permissions and a bunch of other stuff.
+- A couple example scripts for linux include LinEnum and linuxprevchecker on github.Seatbelt and JAWS are for windows.
+- Another useful repository is SUITE PEASS.
+
+## Keep in mind that running such scrips can easily trigger anti-virus software or other alarm bells. Manual enumeration may be preferable in many cases in the name of stealth.
+
+# Kernel Exploits.
+- Whenever we encounter an old server, the first thing we should look at is possible kernel vulnerabilities that may exist. If the server is poorly maintained without recent patches or updates, it is probably vulnerable to kernel exploits.
+- Keep in mind that kernel exlpoits can cause serious instabilities so be very careful when running them on production systems. Only run them in a pen-testing scenario with explicit permission and coordination with the client (unless you wish to do a little trolling hehehehehe).
+
+# Vulnerable Software.
+- Use the command dpkg -l on linux or look at C:\Program Files on windows for any vulnerable (usually older) software. These can contain unpatched vulnerabilities.
+
+# User priveleges
+- We may not always be able to run the commands that we want as our default user. For that, we may want to escalate our user priveleges by gaining access to another user or by accessing root/system users. 
+- The 3 most common methods for this are sudo, suid and Windows token privileges.
+
+sudo is a program that lets you execute commands as a different user. It is used to allow lowever privelege users to execute commands without giving them root user access.
+
+sudo -l gives you a list of priveleges.
+
+sudo su lets you switch to another user.
+
+sudo -u [user] lets you specify which user you want to run the command as.
+
+GTFOBins is a list of unix-like executables that can be used to bypass local restrictions in misconfigured systems.
+LOLBAS has a similar list of stuff but for windows.
+
+# Scheduled Tasks
+- In both linux and windows, we can run scripts at specific intervals (IE antivirus scan every 30 minutes or a backup script every 6 hours)
+You can usually take advantage of these scheduled tasks (windows) or cron jobs (linux) in two main ways.
+- Add a new scheduled task/cron job.
+- Trick them into executing malicious software.
+- The easiest way is to check if we are allowed to add a new scheduled task.
+- There are a couple of files you could look at if you have write permissions.
+/etc/crontab
+/etc/cron.d
+/var/spool/cron/crontabs/root
+
+if we can write to such a directory called by a cronjob then we can write a bash script with a reverse shell command which will send us the shell.
+
+# Exposed Credentials
+- next we can look for files we can read to see if there's exposed credentials in them.
+- This is common with configuration files or log files or history files. (bash_history in linux and PSReadLine in Windows).
+- The enumeration scripts we discussed earlier usually looks for potential passwords in these spots and gives them to us.
+- Also make sure to check for password reuse. Seriously.
+- You can also use another person's SSH credentials.
+
+# SSH Keys
+- Usally SSH keys are in the .ssh directory. We may read their private ssh key in the /home/user/.ssh/id_rsa or /root/.ssh/id_rsa files.
+- This can be used to log into servers. We can copy it to our machine and use the -i flag to login with it.
+- Note that in the example, "chmod 600" is used after copying the file because if the ssh keys have lax permissions, then the server can prevent them from working.
+- 
+- If we find that we may have write access to the ssh directory, then it can become possible to place your public key in there.
+- This can allow you to ssh into the users machine whenever you want but this only really works if you already have full control over the machine since ssh will not accept keys written by other users.
+- First create a new keypair with ssh-keygen and -f to specify output file.
+
+- key.pub is the public key and key with no file extension is the private key. key.pub will need to be copied into the .ssh folder.
+- The remote server should then allow you to login as that user.
+
+
 
