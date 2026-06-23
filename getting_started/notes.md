@@ -429,15 +429,30 @@ Devel
 - With this listener in place, you can execute a reverse shell command that connects the remote host to our netcat listener.
 - When the netcat listener realizes you've connected, it will open a shell.
 - Needs you to setup a listening port using netcat.
-# Bind Shell
-- 
-# Web Shell
-- 
+
 # Listening ports
 - You can set netcat to listen to a specific port. For more info see cheatsheet.
+
 # Connect Back IP
 - To send a reverse connection we need our system's IP and port.
+- Certain shell commands are more reliable than othgers.
+- We can use the exploit we have over a remote host to execute one of these commands. (IE through python or a metasploit module) to get a reverse connection
 
+# Reverse Shell Command
+- The executed commands depend on what OS the compromised host runs on. A website called "Payload All The Things" has a comprehensive list of reverse shell commands which can be very useful.
+- Once we do we should receive a connection through our netcat listener.
+- A reverse shbell is very fragile. Once the reverse shell command is interrupted for any reason, we lose connection and you'd have to repeat the exploit.
+- We can use the exploit over a remote host to execute reverse shell commands (IE through python or a metasploit module) to open the shell
 
+# Bind Shell
+- Another type of shell is a bind shell. This shell requires the host to connect to our listening port.
+- Once a bind shell command is executed, the remote host will connect to you and youll be able to send it commands.
+- You have to setup a listening port BEFORE executing the bind shell command.
+- Make sure you specify the IP and port number you want the shell to connect to when executing the bind shell command.
+- The shell will be waiting on that port for input from you.
 
+# Upgrading TTY
+- Once we connect to a shell through NC, we can only type commands and backspace but we cant move cursors to the left right or edit the commands. We can't go up or down either to access command history.
+- To enable these features you need to upgrade your TTY.
+- 
 
