@@ -573,13 +573,12 @@ if we can write to such a directory called by a cronjob then we can write a bash
 - Usally SSH keys are in the .ssh directory. We may read their private ssh key in the /home/user/.ssh/id_rsa or /root/.ssh/id_rsa files.
 - This can be used to log into servers. We can copy it to our machine and use the -i flag to login with it.
 - Note that in the example, "chmod 600" is used after copying the file because if the ssh keys have lax permissions, then the server can prevent them from working.
-- 
+
 - If we find that we may have write access to the ssh directory, then it can become possible to place your public key in there.
 - This can allow you to ssh into the users machine whenever you want but this only really works if you already have full control over the machine since ssh will not accept keys written by other users.
 - First create a new keypair with ssh-keygen and -f to specify output file.
 
 - key.pub is the public key and key with no file extension is the private key. key.pub will need to be copied into the .ssh folder.
 - The remote server should then allow you to login as that user.
-
 
 

