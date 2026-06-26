@@ -59,7 +59,7 @@ Allows netcat to listen for a connection on a specific port.
 - 'onesixtyone -c <dictionary> <ip>' lets you brute force community strings for networks.
 
 # nmap
-- 'nmap <flag> <ip>'
+- 'nmap <flags> <ip>'
 the -sC parameter of nmap lets you specify which script should be used to gain more detailed information.
 
 -sV parameer instructs nmap to perform a version scan which lets nmap fingerprint the services on the traget system and identify their protocols, application names and version number. Version scan uses a massive databse of over 1000 service signatures, 
@@ -68,7 +68,11 @@ the -sC parameter of nmap lets you specify which script should be used to gain m
 
 -sV and -sC parameters increase how long the scan takes because it has to perform a ton more checks instead of performing only a TCP handshake
 
-- The -sC parameter runs a ton of useful default scripts against the ports to gain more information about them.
+The -sC parameter runs a ton of useful default scripts against the ports to gain more information about them.
+
+-oA 
+--open flag only shows ports that are open/listening ports.
+
 
 version scans can also reveal which OS you are scanning if the version of the protocol mentions it.
 
