@@ -24,6 +24,7 @@ how to connect to a VPN
 - Use 'ssh user@host' to safely remotely access a computer. Very useful utility
 - -p flag lets you specify a port
 - -i lets you specify a private key file you can use to login. No password required, just the private key.
+
 ## Netcat
 Allows you to grab the banner of a given service running on a port. Also lets you set your ports to listening mode so it awaits incoming connections.
 - 'nc <host> <port>'
@@ -130,10 +131,6 @@ md5sum is a bit outdated for encrypting files.
 another file validation hash function.
 - 'sha256sum <file>'
 
-
-
-
-
 # whatweb
 a'whatweb <ip>'
 - Lets you pinpoint the exact tech that runs on the webserver.
@@ -150,6 +147,13 @@ a'whatweb <ip>'
 - 'exploit' lets you actually run the exploit
 - The 'check' command lets you see if a server is vulnerable.
 - 'Upload' command lets you upload a file to the remote host
+
+# msfvenom
+Tool for creating payloads for msfconsole to use. Can be a bind shell, reverse shell, web shell, or something completely differnt.
+- 'msfconsole -p <payload_path>'
+- -p flag lets you specify a payload.
+- -l lists module types, payloads, encoders, nops, all etc.
+
 
 # IP
 - Your IP can be found using the following command.
@@ -170,4 +174,16 @@ A few standard commands are
 
 
 - We can use the exploit we have over a remote host to execute one of these commands. (IE through python or a metasploit module) to get a reverse connection
+
+# xmllint
+tool that lets you format xml files. 
+
+- xmllint --format - <xml_file> to format an xml file to be more readable
+
+# cewl
+cewl is a tool that lets you create custom wordlists with a file as input (can be an xml file or something like that.)
+
+# upgrading tty
+a command for upgrading tty of a reverse shell
+- python -c 'import pty; pty.spawn("/bin/bash")'
 

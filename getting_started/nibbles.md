@@ -8,4 +8,31 @@ pentesters are given some information about the target. This could be a list of 
 # White Box
 testers are given full access. A tester is provided with root-access, access to source code, build diagrams etc to look for logic vulnerabilities. and other flaws tha t are hard to see. This is a highly comprehensive test.
 
+# Notes
+IP: 10.129.200.170 
+Ubuntu version: 4ubuntu2.2
+# NMAP
+Notable ports: 
+- open port 22 running ssh openssh 7.2.p2
+- open port 80 running apache httd 2.4.18
+Notable directory enumeration
+
+# common.txt
+# error 403
+- /.hta /.htapsswd /.htaccess /.server-statsu
+
+# web-extensions.txt
+/.php3 4 5 7 /.phps /.phptml /.htm /.html /.pht
+
+Most likely an apache a php server.
+
+A curl of the main page revealed a /nibbleblog page whcih returned a 200 on adnim, admin.php, content, plugins and README and index.php
+
+# Plugins used
+Readme revealed the following
+PHP module DOM
+PHP module SimpleXML
+PHP moduke GD
+
+Readme also revealed that setup of the server involved uploading files via FTP, perhaps I could upload a webshell into the apache webroot.
 
