@@ -36,3 +36,28 @@ PHP moduke GD
 
 Readme also revealed that setup of the server involved uploading files via FTP, perhaps I could upload a webshell into the apache webroot.
 
+Notes end here. It is a bit incomplete because I got lost in the sauce a little bit.
+
+# high-level summary of approaches and reflection
+The manual approach involved firstly getting the username and password for the admin.php login page. (which was "addmin" "nibbles")
+
+Getting admin meant enumerating /nibbleblog/content/private/user or something along those lines and the password was just a guess for nibbles. Bit silly but ok. Normal critical thinking deduction.
+
+Once the admin panel is accessed, enumerating you may find that the "my-image" plugin has an upload section intended for images. You can upload a php reverse shell script through here and then run it by curling my_image in the content section (I think this is not exact).
+
+After this, you're in.
+
+Now your job is to find a way to gain root as the default user is nibbler. A quick sudo -l reveals that nibbler has the permission to run a script as root in their home directories personal/stuff/monitor.sh folder which you unzip.
+
+Now this is useful because turns out monitor.sh is writable. You can add a reverse shell script into this monitor.sh and then run it as sudo to have root access. Now getting the flags is as simple as running cat in the home directory of nibbler and root.
+
+The metasploit path for this exploit is almost the same except you create the payload using msfvenom. This payload is then uploaded using the same my_image upload prompt as before. Then you are dropped into a shell with the user nibbler. privelege escalation is the exact same as the previous path.
+
+# Reflection
+I needed a lot of help from the walkthrough. This was mainly because I did not enumerate carefully enough and kept missing details. I need to learn to stay focused during these boxes. There's always a way to exploit, you just havent found it yet. Which is okay.
+
+From now on, try to enumerate VERY thoroughly and write down theories about the info you find all the time. 
+
+
+
+
