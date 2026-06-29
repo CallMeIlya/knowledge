@@ -652,3 +652,26 @@ LiveOverflow
 # Dante Prolab
 - Dante prolab is an enterprise-style network geared towards players with some more experience. Check it out sometime.
 
+# Getting Help
+A couple spots to get help
+# HTB Forum
+- has a discussion thread for every box.
+
+# Discord
+- Cool community for same purpose as forums.
+
+# HOMEWORK
+- Try to do 5-10 easy or medium retired boxes. Could be fun.
+
+# Future TODO could be fun.
+
+Root a Retired Easy Box
+Root a Retired Medium Box
+Root an Active Box
+Complete an Easy Challenge
+Share a Walkthrough of a Retired Box
+Complete Offensive Academy Modules
+Root Live Medium/Hard Boxes
+Complete A Track
+Win a Hack The Box Battlegrounds Battle
+Complete A Pro Lab
