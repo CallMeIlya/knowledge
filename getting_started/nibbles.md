@@ -54,7 +54,7 @@ Now this is useful because turns out monitor.sh is writable. You can add a rever
 The metasploit path for this exploit is almost the same except you create the payload using msfvenom. This payload is then uploaded using the same my_image upload prompt as before. Then you are dropped into a shell with the user nibbler. privelege escalation is the exact same as the previous path.
 
 # Reflection
-I needed a lot of help from the walkthrough. This was mainly because I did not enumerate carefully enough and kept missing details. I need to learn to stay focused during these boxes. There's always a way to exploit, you just havent found it yet. Which is okay.
+I needed a lot of help from the walkthrough. This was mainly because I did not enumerate carefully enough and kept missing details. I missed the admin username in the config file, I missed the nibbles password. I need to learn to stay focused during these boxes. There's always a way to exploit, you just havent found it yet. Which is okay.
 
 From now on, try to enumerate VERY thoroughly and write down theories about the info you find all the time. 
 
