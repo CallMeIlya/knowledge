@@ -49,6 +49,8 @@ After this, you're in.
 
 Now your job is to find a way to gain root as the default user is nibbler. A quick sudo -l reveals that nibbler has the permission to run a script as root in their home directories personal/stuff/monitor.sh folder which you unzip.
 
+To get the reverse shell script onto the machine, it is simpler to just create a web server on the localhost and then run wget on it to get the script.
+
 Now this is useful because turns out monitor.sh is writable. You can add a reverse shell script into this monitor.sh and then run it as sudo to have root access. Now getting the flags is as simple as running cat in the home directory of nibbler and root.
 
 The metasploit path for this exploit is almost the same except you create the payload using msfvenom. This payload is then uploaded using the same my_image upload prompt as before. Then you are dropped into a shell with the user nibbler. privelege escalation is the exact same as the previous path.
@@ -56,7 +58,10 @@ The metasploit path for this exploit is almost the same except you create the pa
 # Reflection
 I needed a lot of help from the walkthrough. This was mainly because I did not enumerate carefully enough and kept missing details. I missed the admin username in the config file, I missed the nibbles password. I need to learn to stay focused during these boxes. There's always a way to exploit, you just havent found it yet. Which is okay.
 
+
+
 From now on, try to enumerate VERY thoroughly and write down theories about the info you find all the time. 
+
 
 
 
