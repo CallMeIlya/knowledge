@@ -225,4 +225,12 @@ Resource access level is listed as follows
 - (NP) Do not propogate inherit
 - (I) Permission inherited from parent container
 
+# John the Ripper commands
+A tool for cracking passwords and hashes and such.
+- 'john --single passwd' runs john the ripper in single crack mode on the passwd file.
+- 'john --wordlist=<worlistFile> <hashFile>' runs JTR in wordlist mode.
+- the '--rules' can be applied to generate candidate passwords by appending numbers, letters, capitalizing etc.
+- 'john --incremental <hashFile>' runs JTR in increment mode.
+- You can customize the configuration in incremental mode in john.conf.
+
 
