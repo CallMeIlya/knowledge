@@ -182,7 +182,12 @@ tool that lets you format xml files.
 - xmllint --format - <xml_file> to format an xml file to be more readable
 
 # cewl
-cewl is a tool that lets you create custom wordlists with a file as input (can be an xml file or something like that.)
+cewl is a tool that lets you create custom wordlists with a file as input (can be an xml file or something like that.) Its essentially a small webcrawler/scraper.
+- 'cewl <url> [flags...]'
+- '-d <num>' flag lets you specify how many redirects deep the spider may crawl
+- '-m <num>' flag lets you specify a minimum length of the words stored.
+- '-w <filename>' lets you specify a filename to which to write the found words.
+- '--lowercase' lets you store the words in lowercase.
 
 # upgrading tty
 a command for upgrading tty of a reverse shell
@@ -325,12 +330,26 @@ john  --format=xsha [...] <hash_file> xsha (Extended SHA) password hashes
 ## zip
 john  --format=zip [...] <hash_file> ZIP (WinZip) password hashes
 
+# Hashcat tool
+another password cracking tool with really great GPU support.
+- General syntax 'hashcat -a <attack_id> -m <hash_id> <hashes> [wordlist, rule, mask, ...]'
+- '-a' is used to specify the attack mode
+- '-m' is used to specify the hash type
+- '<hashes>' is either a hash string or a hash file.
+- '--help' will list a lot of the most common hash IDs used by hashcat.
+- The main attack id's are dictionary attack (0), mask (3), association (XX) and combination (XX)
+
+the following command lets you apply a rule to a wordlist and mutate it essentially.
+- 'hashcat --force password.list -r custom.rule --stdout | sort -u > mut_password.list
+
+# Hash types
+
 # hashid tool
 A tool for identifying the formats of hashes.
 - 'hashid <flag> <hash>
 - '-j' flag will list the corresponding John the Ripper format for the hash.
-
-
+- '-m' flag will list the corresponding hashcat hash type.
+- '-r <ruleset> flag lets you specify a ruleset to use for hashcat.
 
 # Windows tools
 The section onward discusses only windows tools.
