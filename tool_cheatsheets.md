@@ -351,6 +351,30 @@ A tool for identifying the formats of hashes.
 - '-m' flag will list the corresponding hashcat hash type.
 - '-r <ruleset> flag lets you specify a ruleset to use for hashcat.
 
+# A command for finding file extensions of encrypted files.
+- 'for ext in $(echo ".xls .xls* .xltx .od* .doc .doc* .pdf .pot .pot* .pp*");do echo -e "\nFile extension: " $ext; find / -name *$ext 2>/dev/null | grep -v "lib\|fonts\|share\|core" ;done'
+
+# Grep
+A tool for searching for text in files.
+- 'grep <text>' literally lets you just see if the given string pops up in the file.
+- '-r' flag lets you recursively search listed subdirectory.
+- '-n' each output line is preceded by its relative line number in the file. (It is reset for each file).
+- '-E' lets you input regex expressions as part of the string.
+
+# ssh-keygen
+A tool used for generating ssh keys. Also has added functionality that lets you read ssh keys from keyfiles.
+- '-yf' flag lets you input a keyfile.
+# A command for finding file extensions of encrypted files.
+- 'for ext in $(echo ".xls .xls* .xltx .od* .doc .doc* .pdf .pot .pot* .pp*");do echo -e "\nFile extension: " $ext; find / -name *$ext 2>/dev/null | grep -v "lib\|fonts\|share\|core" ;done'
+
+# Grep
+A tool for searching for text in files.
+- 'grep <text>' literally lets you just see if the given string pops up in the file.
+- '-r' flag lets you recursively search listed subdirectory.
+- '-n' each output line is preceded by its relative line number in the file. (It is reset for each file).
+- '-E' lets you input regex expressions as part of the string.
+
+# ssh-keygen
 # Windows tools
 The section onward discusses only windows tools.
 
@@ -384,6 +408,8 @@ Resource access level is listed as follows
 - (IO) inherit only
 - (NP) Do not propogate inherit
 - (I) Permission inherited from parent container
+
+
 
 
 
