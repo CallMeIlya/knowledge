@@ -275,7 +275,7 @@ another password cracking tool with really great GPU support.
 - '-m' is used to specify the hash type
 - '<hashes>' is either a hash string or a hash file.
 - '--help' will list a lot of the most common hash IDs used by hashcat.
-- The main attack id's are dictionary attack (0), mask (3), association (XX) and combination (XX) --lol get the IDs of this when you land.
+- The main attack id's are dictionary attack (0), mask (3), association (XX) and combination (XX)
 
 the following command lets you apply a rule to a wordlist and mutate it essentially.
 - 'hashcat --force password.list -r custom.rule --stdout | sort -u > mut_password.list'
@@ -316,6 +316,26 @@ Then we can just crack it with JTR.
 ## Command for determining the format of a file.
 - To determine the format of a file, you can use the 'file <FILE>' command
 
-## Command for setting up a loopback device
-- 'losetup ???' # finish later
+## Setting up loopback devices
+Losetup lets you setup loopback devices which are folders that act as drives through the usage of an API.
+
+- 'losetup -f <drive>' finds the first unused loopback and mounts to it.
+- 'losetup -P <drive>' forces the kernel to scan the partition table for newly created loopback devices.
+
+## Listing loopback devices/partitions.
+lsblk is a tool that lets you list the partitions of a given system. Also lists loopback devices
+
+- 'lsblk'
+
+## Interacting bitlocker drives
+Dislocker is a tool that lets you mount and interact with bitlocker drives on unix-based operating systems. The way this works is it creates a virtual ntfs partition that can be freely mounted like any other ntfs partition.
+- 'dislocker </loopback> -u<password> -- </mountpoint>' lets you decrypt a dislocker drive using a password.
+- '-u' lets you specify a password/decryption key.
+Note: the '--' sign simply marks the end of the program options. I've never seen this syntax before so it was interesting.
+
+
+## mounting filesystems.
+The mount tool lets you mount a filesystems/devices/drives.
+- 'mount <filesystem>'
+- '-o' flag lets you let you specify some comma separated options. See man page for detail.
 
