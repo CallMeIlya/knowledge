@@ -333,9 +333,10 @@ Dislocker is a tool that lets you mount and interact with bitlocker drives on un
 - '-u' lets you specify a password/decryption key.
 Note: the '--' sign simply marks the end of the program options. I've never seen this syntax before so it was interesting.
 
-
 ## mounting filesystems.
 The mount tool lets you mount a filesystems/devices/drives.
 - 'mount <filesystem>'
 - '-o' flag lets you let you specify some comma separated options. See man page for detail.
+
+
 
