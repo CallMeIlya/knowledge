@@ -338,5 +338,30 @@ The mount tool lets you mount a filesystems/devices/drives.
 - 'mount <filesystem>'
 - '-o' flag lets you let you specify some comma separated options. See man page for detail.
 
+## NetExec
+NetExec is a tool that lets you crack many network services. Its pretty cool. 
+- 'netexec <protocol> <target-IP> -u <user-on-userlist> -p <password-or-passwordlist>' Is the general syntax.
+- 'netexec -h' will show a help menu.
+- 'netexec <protocol> -h' also shows a help menu specific to that protocol
+- '-u' lets you specify a user.
+- '-p' lets you specify a password.
 
+## EvilWinRM
+Evil-WinRM is a tool that lets you efficiently communicate with the WinRM service. If a login is successful, then a shell is innitialized using the Powershell Remoting Protocol.
+- 'evil-winrm' -i <target-IP> -u <username> -p <password>'
+- '-i' flag will let you specify an IP
 
+## Hydra
+Hydra is a tool that lets you attack network services.
+- 'hydra -L <list> -P <passwords> <protocol>://<ip>' is the general syntax.
+- 'hydra -L <list> -P <passwords> ssh://<ip>' lets you attack ssh ports
+- 'hydra -L <list> -P <passwords> rdp://<ip>' lets you attack rdp ports on windows
+- '-L' lets you input a list of usernames
+- '-P' lets you input a list of passwords
+
+## xFreeRDP
+xFreeRDP is a tool that lets you remote control machines using the RDP protocol using a linux host (both windows and linux). It uses the x11 window system.
+- 'xfreerdp /v:<targetip> /u:<username> /p:<password>' is the general syntax.
+Note: Keep in mind that this tool will show you a certificate which you ideally should cross reference to avoid man-in-the-middle attacks.
+
+##
