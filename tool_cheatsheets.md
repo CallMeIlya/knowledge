@@ -80,7 +80,7 @@ how to connect to a VPN
 
 ## smbclient
 Lets you enumerate shared SMB folders between users and admins
-- 'smbclient <host>' lets you access it.
+- 'smbclient -U <user> \\\\<host>\\<sharename>' lets you access it.
 - '-L' flag lists available shares
 - '-N' flag supresses password prompts.
 - '-U' flag lets you submit a user as an extra parameter (will likely prompt you with a password)
@@ -280,6 +280,8 @@ another password cracking tool with really great GPU support.
 the following command lets you apply a rule to a wordlist and mutate it essentially.
 - 'hashcat --force password.list -r custom.rule --stdout | sort -u > mut_password.list'
 
+Note: hashcat rules are stored here: /usr/share/hashcat/rules
+
 ## hashid tool
 A tool for identifying the formats of hashes.
 - 'hashid <flag> <hash>
@@ -340,28 +342,38 @@ The mount tool lets you mount a filesystems/devices/drives.
 
 ## NetExec
 NetExec is a tool that lets you crack many network services. Its pretty cool. 
-- 'netexec <protocol> <target-IP> -u <user-on-userlist> -p <password-or-passwordlist>' Is the general syntax.
+- 'netexec <protocol> <target-IP> -u <user-or-userlist> -p <password-or-passwordlist>' Is the general syntax.
 - 'netexec -h' will show a help menu.
 - 'netexec <protocol> -h' also shows a help menu specific to that protocol
 - '-u' lets you specify a user.
 - '-p' lets you specify a password.
-
+- 'netexec smb <ip> -u <users> -p <passwords> --shares' also lets you enumerate shares for the smb protocol.
+Note: nxc is a shorthand for netexec if u want to use it.
 ## EvilWinRM
 Evil-WinRM is a tool that lets you efficiently communicate with the WinRM service. If a login is successful, then a shell is innitialized using the Powershell Remoting Protocol.
 - 'evil-winrm' -i <target-IP> -u <username> -p <password>'
 - '-i' flag will let you specify an IP
 
-## Hydra
+## hydra
 Hydra is a tool that lets you attack network services.
 - 'hydra -L <list> -P <passwords> <protocol>://<ip>' is the general syntax.
-- 'hydra -L <list> -P <passwords> ssh://<ip>' lets you attack ssh ports
-- 'hydra -L <list> -P <passwords> rdp://<ip>' lets you attack rdp ports on windows
+- 'hydra -C <username:password> <protocol>://<ip>' is syntax for a credential stuffing attack. List has to be formatted as username:password
+- 'hydra -L <list> -P <passwords> ssh://<ip>' lets you attack SSH ports
+- 'hydra -L <list> -P <passwords> rdp://<ip>' lets you attack RDP ports on windows
+- 'hydra -L <list> -P <passwords> smb://<ip>' lets you attack an SMB service
 - '-L' lets you input a list of usernames
 - '-P' lets you input a list of passwords
+- '-t' flag lets you specify the number of threads used.
+Note: Many applications/SIEM software will flag you if you go too fast. '-t 4' is a good balance between stealth and speed but wont hide you from most SIEM software. Its not a cloak.
+
+
 
 ## xFreeRDP
 xFreeRDP is a tool that lets you remote control machines using the RDP protocol using a linux host (both windows and linux). It uses the x11 window system.
 - 'xfreerdp /v:<targetip> /u:<username> /p:<password>' is the general syntax.
 Note: Keep in mind that this tool will show you a certificate which you ideally should cross reference to avoid man-in-the-middle attacks.
 
-##
+## default credentials repo tool
+the default credentials cheat sheet is a tool that lets you search default credentials for various devices. Since people sometimes leave them sorta just like that.
+- 'creds search <vendor>' is the default syntax
+Note: Installed using pip3 rather than your OS package manager.
